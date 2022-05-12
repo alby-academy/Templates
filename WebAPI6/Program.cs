@@ -20,6 +20,9 @@ builder.Services.AddOptions<AppOptions>().Bind(builder.Configuration.GetSection(
 
 builder.Services.AddControllers();
 
+if(builder.Environment.IsEnvironment("Development")) Log.Logger.Information("Running in Development mode");
+if(builder.Environment.IsEnvironment("Debug")) Log.Logger.Information("Running in Debug mode");
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();

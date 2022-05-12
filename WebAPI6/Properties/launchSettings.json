@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "WebAPI6": {
+    "WebAPI6.DEV": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -17,6 +17,16 @@
       "applicationUrl": "https://localhost:7145;http://localhost:5145",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "WebAPI6.DEBUG": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7145;http://localhost:5145",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Debug"
       }
     },
     "IIS Express": {
