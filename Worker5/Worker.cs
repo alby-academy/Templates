@@ -8,12 +8,16 @@ using Microsoft.Extensions.Logging;
 
 namespace Worker5
 {
+    using Microsoft.Extensions.Options;
+
     public class Worker : BackgroundService
     {
+        private readonly AppOptions _options;
         private readonly ILogger<Worker> _logger;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(IOptions<AppOptions> options, ILogger<Worker> logger)
         {
+            _options = options.Value;
             _logger = logger;
         }
 
@@ -21,7 +25,8 @@ namespace Worker5
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                var message = $"{_options.Text} at: {DateTimeOffset.Now}";
+                _logger.LogInformation(message);
                 await Task.Delay(1000, stoppingToken);
             }
         }
