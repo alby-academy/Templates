@@ -4,8 +4,15 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class WeatherForecastService : IWeatherForecastService
+    public class WeatherForecastService : IWeatherForecastService, IWeatherForecastService2, IWeatherForecastService3
     {
+        public DateTime Time { get; }
+
+        public WeatherForecastService()
+        {
+            Time = DateTime.Now;
+        }
+        
         private static readonly string[] Summaries =
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
