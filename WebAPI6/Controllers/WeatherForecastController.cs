@@ -6,26 +6,51 @@ namespace WebAPI6.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private readonly IWeatherForecastService _service;
-    private readonly IWeatherForecastService2 _service2;
+    private readonly IServiceProvider _provider;
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(IWeatherForecastService service, IWeatherForecastService2 service2, ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(IServiceProvider provider, ILogger<WeatherForecastController> logger)
     {
-        _service = service;
-        _service2 = service2;
+        _provider = provider;
         _logger = logger;
     }
 
     [HttpGet(Name = nameof(Get))]
     public IActionResult Get()
     {
-        return Ok(_service.Time);
+        var service = _provider.GetRequiredService<IWeatherForecastService>();
+        return Ok(service.Time);
     }
     
     [HttpGet("Get2", Name = nameof(Get2))]
     public IActionResult Get2()
     {
-        return Ok(_service2.Time);
+        var service = _provider.GetRequiredService<IWeatherForecastService2>();
+        return Ok(service.Time);
+    }
+    
+    [HttpGet("Get3", Name = nameof(Get3))]
+    public IActionResult Get3()
+    {
+        var service1A = _provider.GetRequiredService<IWeatherForecastService>();
+        Thread.Sleep(1000);
+        var service1B = _provider.GetRequiredService<IWeatherForecastService>();
+        
+        Thread.Sleep(1000);
+        var service2A = _provider.GetRequiredService<IWeatherForecastService2>();
+        Thread.Sleep(1000);
+        var service2B = _provider.GetRequiredService<IWeatherForecastService2>();
+       
+        Thread.Sleep(1000);
+        var service3A = _provider.GetRequiredService<IWeatherForecastService3>();
+        Thread.Sleep(1000);
+        var service3B = _provider.GetRequiredService<IWeatherForecastService3>();
+
+        var result = new[]
+        {
+            service1A.Time, service1B.Time, service2A.Time, service2B.Time, service3A.Time, service3B.Time
+        };
+        
+        return Ok(result);
     }
 }
