@@ -19,7 +19,7 @@ public class WeatherForecastController : ControllerBase
     public IActionResult Get()
     {
         var service = _provider.GetRequiredService<IWeatherForecastService>();
-        return Ok(service.Time);
+        return Ok(service.Get(5));
     }
     
     [HttpGet("Get2", Name = nameof(Get2))]

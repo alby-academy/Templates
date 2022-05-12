@@ -8,6 +8,8 @@ builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>()
 builder.Services.AddScoped<IWeatherForecastService2, WeatherForecastService>();
 builder.Services.AddTransient<IWeatherForecastService3, WeatherForecastService>();
 
+builder.Services.AddOptions<AppOptions>().Bind(builder.Configuration.GetSection("AppOptions"));
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
