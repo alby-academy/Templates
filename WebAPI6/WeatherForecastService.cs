@@ -14,12 +14,11 @@
         public WeatherForecastService(IOptions<AppOptions> options)
         {
             _options = options.Value;
-            _tot = options.Value.Weathers.Count();
+            _tot = options.Value.Weathers.Count() -1;
             
             Time = DateTime.Now;
         }
         
-
         public IEnumerable<WeatherForecast> Get(int total)
         {
             var rng = new Random();
