@@ -1,6 +1,7 @@
 namespace Worker6;
 
 using Microsoft.Extensions.Options;
+using Serilog;
 using Worker5;
 
 public class Worker : BackgroundService
