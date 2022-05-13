@@ -20,6 +20,7 @@ IHost host = Host.CreateDefaultBuilder(args)
             .Bind(config.GetSection("AppOptions"));
 
         services.AddSingleton<FileReaderInvocable>();
+        services.AddScheduler();
     })
     .ConfigureLogging(builder =>
     {
