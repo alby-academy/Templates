@@ -48,19 +48,15 @@ namespace WorkerServiceEs
                     foreach (var sales in result)
                     {
                         var bytes = Encoding.UTF8.GetBytes(String.Concat($"{sales.VendorName} {sales.Price}", Environment.NewLine));
-
                         await fs.WriteAsync(bytes);
                     }
                 }
                 _logger.LogInformation(@$"Created File: {_options.OutputFilePath}\\{DateTime.Now:yyyyMMdd HHmmss}.txt");
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-
-            
         }
     }
 }
