@@ -17,7 +17,6 @@ public class MyFirstInvocable : IInvocable
         _options = options.Value;
         _logger = logger;
     }
-
     
     public async Task Invoke()
     {
