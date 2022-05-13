@@ -1,20 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console5", "Console5\Console5.csproj", "{5EF6F957-6351-4094-8CEE-1CB4F795CB69}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console5", "Console5\Console5.csproj", "{5EF6F957-6351-4094-8CEE-1CB4F795CB69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console6", "Console6\Console6.csproj", "{1D2A7E5E-89DA-40B9-B239-1540A75685AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console6", "Console6\Console6.csproj", "{1D2A7E5E-89DA-40B9-B239-1540A75685AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API6", "API6\API6.csproj", "{7436D6F3-74EB-4B45-BE08-AE5F5BBEAE50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API6", "API6\API6.csproj", "{7436D6F3-74EB-4B45-BE08-AE5F5BBEAE50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API5", "API5\API5.csproj", "{5E3E6437-82A9-4620-8E04-628B765CF97A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API5", "API5\API5.csproj", "{5E3E6437-82A9-4620-8E04-628B765CF97A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI5", "WebAPI5\WebAPI5.csproj", "{AAF7CEFC-2061-4B82-A36B-5588B155A67E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI5", "WebAPI5\WebAPI5.csproj", "{AAF7CEFC-2061-4B82-A36B-5588B155A67E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI6", "WebAPI6\WebAPI6.csproj", "{BF84039A-08C0-43E2-899D-2D976706AB7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI6", "WebAPI6\WebAPI6.csproj", "{BF84039A-08C0-43E2-899D-2D976706AB7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker6", "Worker6\Worker6.csproj", "{5A497A2F-F73B-4C6C-9CFB-7DFE30841F52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Worker6", "Worker6\Worker6.csproj", "{5A497A2F-F73B-4C6C-9CFB-7DFE30841F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker5", "Worker5\Worker5.csproj", "{6D147098-461A-4372-96EF-831A02FC5182}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Worker5", "Worker5\Worker5.csproj", "{6D147098-461A-4372-96EF-831A02FC5182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerServiceEs", "WorkerServiceEs\WorkerServiceEs.csproj", "{FBCDFEA7-2FC4-49AA-84FF-71ED631F3696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +59,15 @@ Global
 		{6D147098-461A-4372-96EF-831A02FC5182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D147098-461A-4372-96EF-831A02FC5182}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D147098-461A-4372-96EF-831A02FC5182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBCDFEA7-2FC4-49AA-84FF-71ED631F3696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBCDFEA7-2FC4-49AA-84FF-71ED631F3696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBCDFEA7-2FC4-49AA-84FF-71ED631F3696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBCDFEA7-2FC4-49AA-84FF-71ED631F3696}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6292843A-3487-43C5-8645-E12C3824FB22}
 	EndGlobalSection
 EndGlobal
