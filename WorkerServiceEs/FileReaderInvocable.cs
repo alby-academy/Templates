@@ -23,6 +23,8 @@ namespace WorkerServiceEs
                 await using (var fs = File.Create(@$"{_options.OutputFilePath}\\{DateTime.Now:yyyyMMdd HHmmss}.txt"))
                 {
 
+                    Dictionary<string,decimal> salesVendors = new Dictionary<string,decimal>();
+
                     List<Sales> salesList = new();
                     foreach (var line in fileContent)
                     {
@@ -36,18 +38,21 @@ namespace WorkerServiceEs
                         salesList.Add(tmp);
                     }
 
-                    List<Sales> result = salesList
-                                .GroupBy(x => x.VendorName)
-                                .Select(s => new Sales
-                                {
-                                    VendorName = s.First().VendorName,
-                                    Product = s.First().Product,
-                                    Price = s.Sum(c => c.Price),
-                                }).ToList();
-
-                    foreach (var sales in result)
+                    foreach (var item in salesList)
                     {
-                        var bytes = Encoding.UTF8.GetBytes(String.Concat($"{sales.VendorName} {sales.Price}", Environment.NewLine));
+                        if (!salesVendors.ContainsKey(item.VendorName))
+                        {
+                            salesVendors.Add(item.VendorName, item.Price);
+                        }
+                        else
+                        {
+                            salesVendors[item.VendorName] += Convert.ToInt32(item.Price);
+                        }
+                    }
+
+                    foreach (var sales in salesVendors)
+                    {
+                        var bytes = Encoding.UTF8.GetBytes(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine));
                         await fs.WriteAsync(bytes);
                     }
                 }

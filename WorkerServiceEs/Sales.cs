@@ -1,6 +1,6 @@
 ﻿namespace WorkerServiceEs
 {
-    public class Sales
+    public class Sellers
     {
         public string VendorName { get; set; }
         public string Product { get; set; }
