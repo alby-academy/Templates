@@ -27,7 +27,7 @@ public class MyFirstInvocable : IInvocable
         {
             foreach (var line in lines)
             {
-                var bytes = Encoding.UTF8.GetBytes(line);
+                
                 await fs.WriteAsync(bytes);
             }
         }
