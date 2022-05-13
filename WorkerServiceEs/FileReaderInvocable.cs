@@ -22,8 +22,20 @@ namespace WorkerServiceEs
                 var fileContent = await File.ReadAllLinesAsync(_options.InputFilePath);
                 await using (var fs = File.Create(@$"{_options.OutputFilePath}\\{DateTime.Now:yyyyMMdd HHmmss}.txt"))
                 {
+                    /*  var results = 
+                        from line in lines
+                        let array = line.Split(';')
+                        group array[1] by array[2] into g
+                        select new { Person = g.Key, Price = g.Sum(int.Parse) };
 
-                    Dictionary<string,decimal> salesVendors = new Dictionary<string,decimal>();
+                        var groups = lines
+                        .Select(line => line.Split(','))
+                        .GroupBy(line => line[0])
+                        .ToDictionary(line => line[0], line => line)
+                        .Select(dic => dic.Value)
+                */
+
+                    Dictionary<string, decimal> salesVendors = new Dictionary<string, decimal>();
 
                     List<Sales> salesList = new();
                     foreach (var line in fileContent)
@@ -49,7 +61,7 @@ namespace WorkerServiceEs
                     {
                         var bytes = Encoding.UTF8.GetBytes(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine));
                         await fs.WriteAsync(bytes);
-                        _logger.LogInformation(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine));
+                        _logger.LogInformation(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine))
                     }
                 }
                 _logger.LogInformation(@$"Created File: {_options.OutputFilePath}\\{DateTime.Now:yyyyMMdd HHmmss}.txt");
