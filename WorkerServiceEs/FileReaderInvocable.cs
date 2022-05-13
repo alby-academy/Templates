@@ -49,6 +49,7 @@ namespace WorkerServiceEs
                     {
                         var bytes = Encoding.UTF8.GetBytes(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine));
                         await fs.WriteAsync(bytes);
+                        _logger.LogInformation(String.Concat($"{sales.Key} {sales.Value}", Environment.NewLine));
                     }
                 }
                 _logger.LogInformation(@$"Created File: {_options.OutputFilePath}\\{DateTime.Now:yyyyMMdd HHmmss}.txt");
