@@ -29,12 +29,7 @@ namespace WorkerServiceEs
                     foreach (var line in fileContent)
                     {
                         var splitted = line.Split(';');
-                        var tmp = new Sales
-                        {
-                            Product = splitted[0],
-                            Price = Convert.ToInt32(splitted[1]),
-                            VendorName = splitted[2],
-                        };
+                        var tmp = new Sales(splitted[2], splitted[0], Convert.ToInt32(splitted[1]));
                         salesList.Add(tmp);
                     }
 
