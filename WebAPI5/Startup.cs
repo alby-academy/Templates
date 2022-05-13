@@ -14,6 +14,10 @@ using Microsoft.OpenApi.Models;
 
 namespace WebAPI5
 {
+    using Abstract;
+    using Readers;
+    using Services;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,7 +30,8 @@ namespace WebAPI5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+            services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
+            services.AddSingleton<IReader, SqlReader>();
             services.AddControllers();
         }
 

@@ -7,6 +7,9 @@ using Microsoft.Extensions.Logging;
 
 namespace WebAPI5.Controllers
 {
+    using Abstract;
+    using Model;
+
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -21,10 +24,16 @@ namespace WebAPI5.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IActionResult> Get()
         {
-            var result = _service.Get(5);
-            return result;
+            var result = await _service.Get(5);
+            return Ok(result);
+        }
+        
+        [HttpGet("Get2")]
+        public Task<IEnumerable<WeatherForecast>> Get2()
+        {
+           return _service.Get(5);
         }
     }
 }

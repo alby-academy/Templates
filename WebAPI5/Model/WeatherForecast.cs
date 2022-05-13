@@ -1,7 +1,7 @@
-using System;
-
-namespace WebAPI5
+namespace WebAPI5.Model
 {
+    using System;
+
     public class WeatherForecast
     {
         public DateTime Date { get; set; }
